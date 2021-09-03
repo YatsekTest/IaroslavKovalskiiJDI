@@ -1,0 +1,24 @@
+package site.pages;
+
+import com.epam.jdi.light.elements.composite.WebPage;
+import com.epam.jdi.light.elements.pageobjects.annotations.Title;
+import com.epam.jdi.light.elements.pageobjects.annotations.Url;
+import entities.User;
+import site.forms.LoginForm;
+
+@Url("index.html")
+@Title("Home page")
+public class JDIHomePage extends WebPage {
+
+    private LoginForm loginForm;
+
+    public void login(User user) {
+        loginForm.userIcon.click();
+        loginForm.login(user);
+    }
+
+    public String getUserFullName() {
+        return loginForm.userFullName.getText();
+    }
+
+}

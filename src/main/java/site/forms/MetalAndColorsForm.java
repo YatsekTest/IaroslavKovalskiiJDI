@@ -1,14 +1,12 @@
 package site.forms;
 
 import com.epam.jdi.light.elements.complex.Checklist;
-import com.epam.jdi.light.elements.complex.Combobox;
 import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
 import com.epam.jdi.light.elements.composite.Form;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import com.epam.jdi.light.ui.html.elements.common.Button;
-import com.epam.jdi.light.ui.html.elements.complex.MultiSelector;
 import com.epam.jdi.light.ui.html.elements.complex.RadioButtons;
 import entities.MetalAndColors;
 
@@ -46,22 +44,17 @@ public class MetalAndColorsForm extends Form<MetalAndColors> {
 
     @Override
     public void submit(MetalAndColors metalAndColors) {
-
-        summaryOdd.select(metalAndColors.summaryOdd);
-        summaryEven.select(metalAndColors.summaryEven);
-
+        summaryOdd.select(metalAndColors.summary[0]);
+        summaryEven.select(metalAndColors.summary[1]);
         for (String element : metalAndColors.elementsChecklist) {
             elementsChecklist.select(element);
         }
-
         colors.select(metalAndColors.colors);
         metals.select(metalAndColors.metals);
-
         vegetables.select("Vegetables");
         for (String vegetable : metalAndColors.vegetables) {
             vegetables.select(vegetable);
         }
-
         submitButton.click();
     }
 

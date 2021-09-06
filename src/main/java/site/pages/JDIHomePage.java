@@ -1,8 +1,10 @@
 package site.pages;
 
 import com.epam.jdi.light.elements.composite.WebPage;
+import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.Title;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import entities.User;
 import site.forms.LoginForm;
 
@@ -10,7 +12,8 @@ import site.forms.LoginForm;
 @Title("Home page")
 public class JDIHomePage extends WebPage {
 
-    private LoginForm loginForm;
+    @UI("#login-form")
+    public LoginForm loginForm;
 
     public void login(User user) {
         loginForm.userIcon.click();

@@ -7,7 +7,6 @@ import com.epam.jdi.light.ui.html.elements.common.Link;
 import com.epam.jdi.light.ui.html.elements.common.TextField;
 import entities.User;
 
-@FindBy(id = "login-form")
 public class LoginForm extends Form<User> {
 
     @FindBy(id = "user-icon")

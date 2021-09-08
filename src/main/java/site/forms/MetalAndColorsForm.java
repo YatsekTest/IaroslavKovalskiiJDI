@@ -10,6 +10,10 @@ import com.epam.jdi.light.ui.html.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.complex.RadioButtons;
 import entities.MetalAndColors;
 
+import java.util.Arrays;
+
+import static org.testng.Assert.assertEquals;
+
 public class MetalAndColorsForm extends Form<MetalAndColors> {
 
     @FindBy(name = "custom_radio_odd")
@@ -55,4 +59,12 @@ public class MetalAndColorsForm extends Form<MetalAndColors> {
         submitButton.click();
     }
 
+    @Override
+    public void check(MetalAndColors metalAndColors) {
+        super.check(metalAndColors);
+        assertEquals(summaryOdd.getValue(), String.valueOf(metalAndColors.getSummary()[0]));
+        assertEquals(summaryEven.getValue(), String.valueOf(metalAndColors.getSummary()[1]));
+        assertEquals(elementsChecklist.checked(), Arrays.asList(metalAndColors.getElements()));
+        assertEquals(vegetables.getValue().split(", "), metalAndColors.getVegetables());
+    }
 }

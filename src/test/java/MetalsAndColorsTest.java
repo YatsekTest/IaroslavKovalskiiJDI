@@ -15,7 +15,7 @@ public class MetalsAndColorsTest implements BaseTest {
         metalAndColorsForm.check(metalAndColors);
     }
 
-    @Test
+    @Test(enabled = false)
     public void metalAndColorsWrongDataTest() {
         metalAndColorsForm.submit(METAL_AND_COLORS);
         metalAndColorsForm.check(METAL_AND_COLORS_WRONG);

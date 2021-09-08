@@ -16,8 +16,6 @@ public class JDIsite {
 
     public static MetalAndColorsForm metalAndColorsForm;
 
-
-
     public static void open() {
         jdiHomePage.open();
     }

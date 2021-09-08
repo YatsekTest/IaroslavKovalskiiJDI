@@ -10,15 +10,22 @@ import entities.User;
 public class LoginForm extends Form<User> {
 
     @FindBy(id = "user-icon")
-    public Link userIcon;
+    private Link userIcon;
 
     @FindBy(id = "name")
-    public TextField name;
+    private TextField name;
 
     @FindBy(id = "password")
-    public TextField password;
+    private TextField password;
 
     @FindBy(id = "user-name")
-    public Label userFullName;
+    private Label userFullName;
 
+    public Link getUserIcon() {
+        return userIcon;
+    }
+
+    public Label getUserFullName() {
+        return userFullName;
+    }
 }

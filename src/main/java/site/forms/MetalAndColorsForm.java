@@ -13,48 +13,45 @@ import entities.MetalAndColors;
 public class MetalAndColorsForm extends Form<MetalAndColors> {
 
     @FindBy(name = "custom_radio_odd")
-    public RadioButtons summaryOdd;
+    private RadioButtons summaryOdd;
 
     @FindBy(name = "custom_radio_even")
-    public RadioButtons summaryEven;
+    private RadioButtons summaryEven;
 
     @UI("p.checkbox > [type=checkbox]")
-    public Checklist elementsChecklist;
+    private Checklist elementsChecklist;
 
     @JDropdown(root = "div[id=colors]",
             value = ".filter-option",
             list = "li",
             expand = ".caret")
-    public Dropdown colors;
+    private Dropdown colors;
 
     @JDropdown(root = "div[id=metals]",
             value = "button.btn.dropdown-toggle",
             list = "li",
             expand = ".caret")
-    public Dropdown metals;
+    private Dropdown metals;
 
     @JDropdown(root = "div[id=vegetables]",
             value = "button.btn.btn-default",
             list = "li",
             expand = ".caret")
-    public Dropdown vegetables;
+    private Dropdown vegetables;
 
     @FindBy(id = "submit-button")
-    public Button submitButton;
+    private Button submitButton;
 
     @Override
     public void submit(MetalAndColors metalAndColors) {
-        summaryOdd.select(metalAndColors.summary[0]);
-        summaryEven.select(metalAndColors.summary[1]);
-        for (String element : metalAndColors.elementsChecklist) {
-            elementsChecklist.select(element);
-        }
-        colors.select(metalAndColors.colors);
-        metals.select(metalAndColors.metals);
+        summaryOdd.select(String.valueOf(metalAndColors.getSummary()[0]));
+        summaryEven.select(String.valueOf(metalAndColors.getSummary()[1]));
+        elementsChecklist.select(metalAndColors.getElements());
+        colors.select(metalAndColors.getColor());
+        metals.select(metalAndColors.getMetals());
+        vegetables.expand();
         vegetables.select("Vegetables");
-        for (String vegetable : metalAndColors.vegetables) {
-            vegetables.select(vegetable);
-        }
+        vegetables.select(metalAndColors.getVegetables());
         submitButton.click();
     }
 

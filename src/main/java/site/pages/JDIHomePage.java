@@ -1,7 +1,6 @@
 package site.pages;
 
 import com.epam.jdi.light.elements.composite.WebPage;
-import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.Title;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
@@ -16,12 +15,12 @@ public class JDIHomePage extends WebPage {
     public LoginForm loginForm;
 
     public void login(User user) {
-        loginForm.userIcon.click();
+        loginForm.getUserIcon().click();
         loginForm.login(user);
     }
 
     public String getUserFullName() {
-        return loginForm.userFullName.getText();
+        return loginForm.getUserFullName().getText();
     }
 
 }

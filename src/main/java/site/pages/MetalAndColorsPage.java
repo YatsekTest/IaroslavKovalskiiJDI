@@ -6,7 +6,7 @@ import com.epam.jdi.light.elements.pageobjects.annotations.Url;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import site.forms.MetalAndColorsForm;
 
-@Url("/metals-colors.html")
+@Url("metals-colors.html")
 @Title("Metal and Colors")
 public class MetalAndColorsPage extends WebPage {
 
